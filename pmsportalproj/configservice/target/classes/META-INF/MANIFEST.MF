@@ -2,9 +2,9 @@ Manifest-Version: 1.0
 Implementation-Title: configservice
 Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: malathi.m
-Implementation-Vendor-Id: com.beyontec.broker
+Implementation-Vendor-Id: com.pms.portal
 Build-Jdk: 1.8.0_181
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
- ot-starter-parent/beyontecbrokerportal/configservice
+ ot-starter-parent/tvsnpmsportal/configservice
 Created-By: Maven Integration for Eclipse
 

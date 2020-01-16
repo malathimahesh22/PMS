@@ -2,13 +2,13 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.beyontec.broker</groupId>
-	<artifactId>beyontecbrokerportal</artifactId>
+	<groupId>com.pms.portal</groupId>
+	<artifactId>tvsnpmsportal</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>beyontecbrokerportal</name>
-	<description>This is broker portal</description>
+	<name>tvsnpmsportal</name>
+	<description>This is PMS portal</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -23,12 +23,8 @@
 	</properties>
 
 	<modules>
-		<module>brokerservice</module>
-		<module>oracledatasync</module>
 		<module>gatewayservice</module>
 		<module>configservice</module>
-		<module>notificationservice</module>
-		<module>adminservice</module>
 		<module>eurekaservice</module>
 	</modules>
 
