@@ -1,0 +1,86 @@
+server:
+  port: 8095
+spring:
+############  MYSQL LOCAL  #############
+#  datasource:
+#    url: jdbc:mysql://10.91.16.60:3306/brokerportaldevdb?serverTimezone=UTC&useSSL=FALSE&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+#    username: beyonbrokerdev
+#    password: Beyon123@!
+#    driverClassName: com.mysql.jdbc.Driver
+############ MYSQL PUBLIC IP ############
+  datasource:
+    url: jdbc:mysql://115.112.102.197:3306/brokerportaldevdb?serverTimezone=UTC&useSSL=FALSE&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+    username: beyonbrokerdev
+    password: Beyon123@!
+    driverClassName: com.mysql.jdbc.Driver
+############ ORACLE DIALECT #############
+#  datasource:
+#    url: jdbc:oracle:thin:@192.168.2.151:1521/bts122se1pdbprd1
+#    username: bts_bpt_cpt_iqc_02
+#    password: btsbptcptiqc02
+#    driver-class-name: oracle.jdbc.OracleDriver
+#########################################
+    hikari: 
+      maximumPoolSize: 25
+      idle-timeout: 10000      
+  jpa:
+#    database-platform: org.hibernate.dialect.Oracle10gDialect
+     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+#    show-sql: true
+#    hibernate.naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    #generate-ddl: true
+    #hibernate.ddl-auto: update
+  boot:
+    admin:
+      client:
+        enabled: true
+        url: http://localhost:8045
+  cloud:
+     gateway:
+       globalcors: 
+       corsConfigurations: 
+       '[/**]': 
+       allowedOrigins: "*"
+       allowedMethods: 
+        - GET,PUT,POST,OPTIONS,DELETE
+       routes: 
+             - id: brokerservice
+               uri: http://localhost:8075
+               predicates:
+                    - Path=/brokerservice/**
+             - id: oraclesync
+               uri: http://localhost:8078
+               predicates:
+                    - Path=/oracledatasync/**
+management:
+ endpoints:
+   web.exposure.include: '*'
+ endpoint:
+   health:
+     show-details: ALWAYS
+jackson:
+ serialization:
+   WRITE_DATES_AS_TIMESTAMPS: false
+token_Expiry_Time: 60
+send_mail_url: /notification/sendMail
+send_sms_url: /notification/sendSMS
+google_app_name: TestAPP
+google.recaptcha.secret: 6LeZZZgUAAAAADB0NcAD5CzTgwtHyKagShn_6_MU
+logging:
+ file: /var/logs/beyontec/gateway.log
+ pattern:
+   console: '%d %-5level %logger : %msg%n'
+   file: '%d %-5level [%thread] %logger : %msg%n'
+ level:
+   org.springframework.web: TRACE
+   org.hibernate: ERROR
+md5_iv: 1234567891234560
+md5_secretKey: 736478326487326
+eureka: 
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8083/eureka/
+  instance:
+    prefer-ip-address: true

@@ -1,0 +1,26 @@
+server:
+  port: 8085
+
+spring:
+  profiles:
+   active:  native
+  application:
+    name: beyontec-config
+  cloud:
+    config:
+      server:
+         native:
+          searchLocations: classpath:/config/
+
+management: 
+     security: 
+        enabled: false
+logging:
+  file: /var/logs/beyontec/config.log
+  pattern:
+    console: '%d %-5level %logger : %msg%n'
+    file: '%d %-5level [%thread] %logger : %msg%n'
+  level:
+    org.springframework.web: DEBUG
+    org.hibernate: DEBUG        
+        

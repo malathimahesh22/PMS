@@ -1,0 +1,55 @@
+server:
+  port: 8025
+  servlet:
+    context-path: /notification
+spring:
+  datasource:
+    #url: jdbc:mysql://115.112.102.197:3306/brokerportaldevdb?serverTimezone=UTC&useSSL=FALSE&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://10.91.16.60:3306/brokerportaldevdb?serverTimezone=UTC&useSSL=FALSE&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+    username: beyonbrokerdev
+    password: Beyon123@!
+    hikari: 
+      maximumPoolSize: 25
+      idle-timeout: 10000
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    hibernate.naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  boot:
+    admin:
+      client:
+         url: http://localhost:8045
+management:
+  endpoints:
+    web.exposure.include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS  
+    
+mail_api_key: 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
+sms_api_key: G1Up0MwhIQg-NrT8a5HNYjeNF8lM31yyGnsmKLEHmZ
+#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
+
+from_email: noreply@beyontec.in
+
+mail_sender_name: Beyontec
+
+logging:
+  file: /var/logs/notification/notificationservice.log
+  pattern:
+    console: '%d %-5level %logger : %msg%n'
+    file: '%d %-5level [%thread] %logger : %msg%n'
+  level:
+    org.springframework.web: ERROR
+    com.beyontec: INFO
+    org.hibernate: ERROR
+md5_iv: 1234567891234560
+md5_secretKey: 736478326487326
+eureka: 
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8083/eureka/
+  instance:
+    prefer-ip-address: true
