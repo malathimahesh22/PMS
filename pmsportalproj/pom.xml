@@ -13,7 +13,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.5.RELEASE</version>
+		<version>2.2.3.RELEASE</version>
 		<relativePath />
 	</parent>
 
@@ -29,10 +29,19 @@
 	</modules>
 
 	<dependencies>
+	<!-- https://mvnrepository.com/artifact/org.jenkins-ci.main/jenkins-core -->
+	
+
+			
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.integration/spring-integration-core -->
+		<dependency>
+		    <groupId>org.springframework.integration</groupId>
+		    <artifactId>spring-integration-core</artifactId>
 		</dependency>
 
 		<dependency>
@@ -50,12 +59,33 @@
 			<version>2.5.0</version>
 			<scope>compile</scope>
 		</dependency>
+				<!-- https://mvnrepository.com/artifact/org.springframework.security.oauth/spring-security-oauth -->
+		<dependency>
+		    <groupId>org.springframework.security.oauth</groupId>
+		    <artifactId>spring-security-oauth</artifactId>
+		    <version>2.4.0.RELEASE</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.batch/spring-batch-core -->
+		<dependency>
+		    <groupId>org.springframework.batch</groupId>
+		    <artifactId>spring-batch-core</artifactId>
+		    </dependency>
+				
+				
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.5.0</version>
 			<scope>compile</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+<dependency>
+    <groupId>org.mockito</groupId>
+    <artifactId>mockito-core</artifactId>
+    <version>3.2.0</version>
+    <scope>test</scope>
+</dependency>
+		
 	</dependencies>
 
 
