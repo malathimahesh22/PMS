@@ -5,16 +5,14 @@ spring:
   profiles:
    active:  native
   application:
-    name: beyontec-config
+    name: configserver
   cloud:
     config:
       server:
          native:
           searchLocations: classpath:/config/
 
-management: 
-     security: 
-        enabled: false
+
 logging:
   file: /var/logs/beyontec/config.log
   pattern:

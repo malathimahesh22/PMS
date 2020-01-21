@@ -2,17 +2,17 @@ server:
   port: 8095
 spring:
 ############  MYSQL LOCAL  #############
-#  datasource:
-#    url: jdbc:mysql://10.91.16.60:3306/brokerportaldevdb?serverTimezone=UTC&useSSL=FALSE&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
-#    username: beyonbrokerdev
-#    password: Beyon123@!
-#    driverClassName: com.mysql.jdbc.Driver
-############ MYSQL PUBLIC IP ############
   datasource:
-    url: jdbc:mysql://115.112.102.197:3306/brokerportaldevdb?serverTimezone=UTC&useSSL=FALSE&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://10.91.16.60:3306/brokerdevlocal?serverTimezone=UTC&useSSL=FALSE&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
     username: beyonbrokerdev
     password: Beyon123@!
     driverClassName: com.mysql.jdbc.Driver
+############ MYSQL PUBLIC IP ############
+#  datasource:
+#    url: jdbc:mysql://115.112.102.197:3306/brokerportaldevdb?serverTimezone=UTC&useSSL=FALSE&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+#    username: beyonbrokerdev
+#    password: Beyon123@!
+#    driverClassName: com.mysql.jdbc.Driver
 ############ ORACLE DIALECT #############
 #  datasource:
 #    url: jdbc:oracle:thin:@192.168.2.151:1521/bts122se1pdbprd1
@@ -25,11 +25,18 @@ spring:
       idle-timeout: 10000      
   jpa:
 #    database-platform: org.hibernate.dialect.Oracle10gDialect
-     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-#    show-sql: true
-#    hibernate.naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    #generate-ddl: true
-    #hibernate.ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    hibernate.naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    generate-ddl: true
+    hibernate.ddl-auto: none
+  flyway: 
+    url: jdbc:mysql://10.91.16.60:3306/brokerdevlocal?serverTimezone=UTC&useSSL=FALSE&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+    username: beyonbrokerdev
+    password: Beyon123@!
+    locations: classpath:/db/migration
+    baseline-on-migrate: true
+    baseline-version: 0
   boot:
     admin:
       client:
